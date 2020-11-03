@@ -2,7 +2,6 @@ package com.hui.aop.interceptor.Impl;
 
 import com.hui.aop.interceptor.Interceptor;
 import com.hui.aop.invocation.MyInvocation;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;
 

@@ -30,6 +30,15 @@ public class ProxyBean implements InvocationHandler {
         Object proxyInstance = Proxy.newProxyInstance(classLoader, interfaces, proxyBean);
         return proxyInstance;
     }
+
+    /**
+     * 约定请求流程
+     * @param proxy
+     * @param method
+     * @param args
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 执行拦截器前置方法
