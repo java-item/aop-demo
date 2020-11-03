@@ -14,7 +14,6 @@ class AopApplicationTests {
 
     @Test
     void contextLoads() {
-
         DemoService proxyBean = (DemoService) ProxyBean.getProxyBean(new DemoServiceImpl(), new MyInterceptorIml());
         System.out.println(proxyBean.hello("Java"));
     }

@@ -27,12 +27,12 @@ public class ProxyBean implements InvocationHandler {
         // 生成代理对象
         ClassLoader classLoader = target.getClass().getClassLoader();
         Class<?>[] interfaces = target.getClass().getInterfaces();
-        Object proxyInstance = Proxy.newProxyInstance(classLoader, interfaces, proxyBean);
-        return proxyInstance;
+        return Proxy.newProxyInstance(classLoader, interfaces, proxyBean);
     }
 
+
     /**
-     * 约定请求流程
+     * 约定请求流程 (代理对象的方法最终都会被JVM导向它的invoke方法)
      * @param proxy
      * @param method
      * @param args

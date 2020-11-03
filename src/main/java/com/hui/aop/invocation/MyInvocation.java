@@ -1,13 +1,13 @@
 package com.hui.aop.invocation;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-
+/**
+ * 事件处理器
+ */
 @Data
 public class MyInvocation {
     /**
