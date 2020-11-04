@@ -1,8 +1,8 @@
 package com.hui.aop.service.Impl;
 
-import com.hui.aop.service.DemoService;
+import com.hui.aop.service.HelloService;
 
-public class DemoServiceImpl implements DemoService {
+public class HelloServiceImpl implements HelloService {
     @Override
     public String hello(String str) {
         return str;

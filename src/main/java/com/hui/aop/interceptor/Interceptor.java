@@ -1,10 +1,7 @@
 package com.hui.aop.interceptor;
 
-
-
-import com.hui.aop.invocation.MyInvocation;
-
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * 定义拦截器
@@ -21,13 +18,15 @@ public interface Interceptor {
     void after();
 
     /**
-     * 取代原有方法
-     * @param invocation
-     * @return Object
+     * 代理原有方法
+     * @param target
+     * @param method
+     * @param params
+     * @return
      * @throws InvocationTargetException
-     * @throws IllegalAccessError
+     * @throws IllegalAccessException
      */
-    Object around(MyInvocation invocation) throws InvocationTargetException,IllegalAccessError,Exception;
+    Object around(Object target, Method method, Object[] params) throws InvocationTargetException, IllegalAccessException;
 
     /**
      * 方法执行后，没有发生异常时执行

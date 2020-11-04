@@ -1,7 +1,6 @@
 package com.hui.aop.proxy;
 
 import com.hui.aop.interceptor.Interceptor;
-import com.hui.aop.invocation.MyInvocation;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -43,14 +42,13 @@ public class ProxyBean implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 执行拦截器前置方法
         this.interceptor.before();
-        MyInvocation myInvocation = new MyInvocation(target, method, args);
         boolean isError = false;
         Object result = null;
         try {
             // 检测是否要执行around方法
             if (this.interceptor.useAround()){
                 // 通过拦截器触发原方法
-                result = this.interceptor.around(myInvocation);
+                result = this.interceptor.around(target,method,args);
             }  else  {
                 // 直接执行原方法
                 result = method.invoke(target,args);
