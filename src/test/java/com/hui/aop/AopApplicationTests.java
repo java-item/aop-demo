@@ -1,11 +1,13 @@
 package com.hui.aop;
 
+import com.hui.aop.service.HelloParamService;
 import com.hui.aop.service.HelloService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootTest
 class AopApplicationTests {
@@ -13,8 +15,12 @@ class AopApplicationTests {
     private HelloService helloService;
     @Test
     void contextLoads() {
-        String java = helloService.hello("Java");
-        System.out.println("result -->" + java);
+        List<String> paramList = Arrays.asList("Java", null);
+        paramList.forEach(s -> {
+            HelloParamService helloParamService = (HelloParamService) helloService;
+            if (helloParamService.checkParam(s)) {
+                System.out.println("result -->" +  helloService.hello(s));
+            }
+        });
     }
-
 }
